@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">CurrencyApp</string>
+    <string name="charCode">XXX</string>
+    <string name="name">Valute</string>
+    <string name="numCodeStatic">Code:</string>
+    <string name="numCode">XXX</string>
+    <string name="nominalToValute">X = X</string>
+</resources>
