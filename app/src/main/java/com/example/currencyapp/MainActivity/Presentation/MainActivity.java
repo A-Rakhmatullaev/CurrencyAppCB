@@ -24,14 +24,12 @@ public class MainActivity extends AppCompatActivity
 
     MainViewModel mainViewModel;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         varInit();
-
 
     }
 
@@ -51,7 +49,6 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onChanged(ArrayList<Currency> currencyArrayList)
             {
-
                 CurrencyListAdapter currencyListAdapter = new CurrencyListAdapter(currencyArrayList, MainActivity.this);
                 recyclerView.setAdapter(currencyListAdapter);
                 recyclerView.setLayoutManager(new LinearLayoutManager(MainActivity.this));
