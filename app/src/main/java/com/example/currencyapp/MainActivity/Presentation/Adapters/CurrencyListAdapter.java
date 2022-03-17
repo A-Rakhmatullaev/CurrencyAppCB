@@ -37,7 +37,6 @@ public class CurrencyListAdapter extends RecyclerView.Adapter<CurrencyListAdapte
         TextView nominalToValute;
         public MyViewHolder(@NonNull View itemView)
         {
-            //TODO Vid on 13:19 - continue
             super(itemView);
             charCode = itemView.findViewById(R.id.textView_CharCode);
             name = itemView.findViewById(R.id.textView_Name);

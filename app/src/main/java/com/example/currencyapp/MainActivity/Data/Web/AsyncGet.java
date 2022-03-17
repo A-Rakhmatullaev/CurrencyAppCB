@@ -1,5 +1,6 @@
 package com.example.currencyapp.MainActivity.Data.Web;
 
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.util.Log;
 
@@ -25,6 +26,8 @@ public class AsyncGet extends AsyncTask<Void, Integer, ArrayList<Currency>>
     ArrayList<Currency> currencyArrayList = new ArrayList<>();
     Currency currency;
 
+    ArrayList<SharedPreferences> sharedPreferences;
+    SharedPreferences.Editor editor;
 
     protected ArrayList<Currency> doInBackground(Void... voids)
     {
@@ -84,20 +87,22 @@ public class AsyncGet extends AsyncTask<Void, Integer, ArrayList<Currency>>
                     currencyArrayList.add(currency);
                     //Log.d("MyLog","LINE: "+ currencyArrayList + "\n");
                 }
+                //Save data into SharedPrefs for future uses
+
+            }
+            else
+            {
+
             }
         }
         catch (Exception e)
         {
             e.printStackTrace();
         }
-
         return currencyArrayList;
     }
 
-    protected void onProgressUpdate(Integer... progress) {
-    }
-
+    protected void onProgressUpdate(Integer... progress) { }
     protected void onPostExecute(ArrayList<Currency> currencyArrayList)
-    {
-    }
+    { }
 }

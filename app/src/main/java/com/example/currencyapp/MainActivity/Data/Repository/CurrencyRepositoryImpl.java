@@ -14,11 +14,6 @@ public class CurrencyRepositoryImpl implements CurrencyRepository
     @Override
     public ArrayList<Currency> getCurrency()
     {
-        //TODO
-        //1. Connect to Site and get JSON - Done
-        //2. Parse obtained JSON - Done
-        //3. Put into class parsed JSON [or mb into array/list of the class] - Done
-        //4. return array/list into ViewModel
         ArrayList<Currency> currencyArrayList= new ArrayList<>();
         AsyncGet asyncGet = new AsyncGet();
         try

@@ -6,7 +6,9 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import com.example.currencyapp.MainActivity.Data.Repository.CurrencyRepositoryImpl;
@@ -21,8 +23,8 @@ public class MainActivity extends AppCompatActivity
 {
     //Variables Declaration
     RecyclerView recyclerView;
-
     MainViewModel mainViewModel;
+    SwipeRefreshLayout swipeRefreshLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -30,19 +32,23 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         varInit();
-
+        setRefresher();
+        getCurrency();
+        //TODO Save retrieved results
+        //TODO Renew Activity by user
     }
 
     private void varInit()
     {
+        //SwipeRefresh
+        swipeRefreshLayout = findViewById(R.id.swipeRefresh);
+
         //RecyclerView
         recyclerView = findViewById(R.id.recView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-
         //ViewModel
         mainViewModel = new ViewModelProvider(this).get(MainViewModel.class);
-        mainViewModel.getCurrencyVM();
 
         mainViewModel.mutableLiveData.observe(this, new Observer<ArrayList<Currency>>()
         {
@@ -54,5 +60,22 @@ public class MainActivity extends AppCompatActivity
                 recyclerView.setLayoutManager(new LinearLayoutManager(MainActivity.this));
             }
         });
+    }
+
+    private void setRefresher()
+    {
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener()
+        {
+            @Override
+            public void onRefresh()
+            {
+                getCurrency();
+                swipeRefreshLayout.setRefreshing(false);
+            }
+        });
+    }
+    private void getCurrency()
+    {
+        mainViewModel.getCurrencyVM();
     }
 }
