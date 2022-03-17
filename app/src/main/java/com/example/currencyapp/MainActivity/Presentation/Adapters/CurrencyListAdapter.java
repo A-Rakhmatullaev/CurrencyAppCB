@@ -60,11 +60,9 @@ public class CurrencyListAdapter extends RecyclerView.Adapter<CurrencyListAdapte
         currencyForHolder = currencyArrayList.get(position);
         holder.charCode.setText(currencyForHolder.getCharCode());
         holder.name.setText(currencyForHolder.getName());
-        Log.d("MyLog","LINE: "+ currencyForHolder.getNumCode() + "\n");
         holder.numCode.setText("" + currencyForHolder.getNumCode());
         holder.nominalToValute.setText(currencyForHolder.getNominal() + " = " + currencyForHolder.getValue());
     }
-
 
     @Override
     public int getItemCount()

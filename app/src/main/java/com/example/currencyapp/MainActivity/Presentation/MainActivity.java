@@ -17,7 +17,10 @@ import com.example.currencyapp.MainActivity.Domain.UseCases.GetCurrencyUseCase;
 import com.example.currencyapp.MainActivity.Presentation.Adapters.CurrencyListAdapter;
 import com.example.currencyapp.R;
 
+import java.sql.Time;
 import java.util.ArrayList;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class MainActivity extends AppCompatActivity
 {
@@ -34,8 +37,7 @@ public class MainActivity extends AppCompatActivity
         varInit();
         setRefresher();
         getCurrency();
-        //TODO Save retrieved results
-        //TODO Renew Activity by user
+        //getCurrency();
     }
 
     private void varInit()
@@ -78,4 +80,6 @@ public class MainActivity extends AppCompatActivity
     {
         mainViewModel.getCurrencyVM();
     }
+
+
 }

@@ -25,7 +25,7 @@ public class AsyncGet extends AsyncTask<Void, Integer, ArrayList<Currency>>
 
     ArrayList<Currency> currencyArrayList = new ArrayList<>();
     Currency currency;
-    
+
     protected ArrayList<Currency> doInBackground(Void... voids)
     {
         String LINK = "https://www.cbr-xml-daily.ru/daily_json.js";
@@ -85,10 +85,6 @@ public class AsyncGet extends AsyncTask<Void, Integer, ArrayList<Currency>>
                     //Log.d("MyLog","LINE: "+ currencyArrayList + "\n");
                 }
                 //Save data into SharedPrefs for future uses
-
-            }
-            else
-            {
 
             }
         }
