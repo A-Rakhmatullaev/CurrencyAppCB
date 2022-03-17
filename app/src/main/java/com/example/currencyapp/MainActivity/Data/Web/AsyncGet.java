@@ -25,10 +25,7 @@ public class AsyncGet extends AsyncTask<Void, Integer, ArrayList<Currency>>
 
     ArrayList<Currency> currencyArrayList = new ArrayList<>();
     Currency currency;
-
-    ArrayList<SharedPreferences> sharedPreferences;
-    SharedPreferences.Editor editor;
-
+    
     protected ArrayList<Currency> doInBackground(Void... voids)
     {
         String LINK = "https://www.cbr-xml-daily.ru/daily_json.js";
